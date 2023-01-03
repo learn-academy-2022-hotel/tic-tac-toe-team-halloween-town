@@ -4,6 +4,11 @@ import './App.css'
 
 const App = () => {
   const [squares, setSquares] = useState(Array(9).fill(null))
+  const handleGamePlay = (clickedSquare) => {
+    let updateBoard = [...squares] 
+    updateBoard[clickedSquare] = "❌"
+    setSquares(updateBoard)
+  }
 
   return (
     <>
@@ -14,6 +19,7 @@ const App = () => {
           <Square
             square={square}
             index={index}
+            handleGamePlay={handleGamePlay}
             />
         )
       })}
