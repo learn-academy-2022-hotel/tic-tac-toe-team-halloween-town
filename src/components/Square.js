@@ -5,7 +5,9 @@ const Square = ({square, index, handleGamePlay}) => {
     handleGamePlay(index)
   }
   return (
+    <>
     <div className="square" onClick={handleClick}>{square}</div>
+    </>
   )
 }
 export default Square
