@@ -4,11 +4,20 @@ import './App.css'
 
 const App = () => {
   const [squares, setSquares] = useState(Array(9).fill(null))
+
   const handleGamePlay = (clickedSquare) => {
-    let updateBoard = [...squares] 
-    updateBoard[clickedSquare] = "❌"
-    setSquares(updateBoard)
-  }
+    if(squares[clickedSquare] !== null){
+  
+     let updateBoard = [...squares]
+      updateBoard[clickedSquare] = "❌"
+      setSquares(updateBoard)
+    } else{
+      let updateBoard = [...squares]
+      updateBoard[clickedSquare] = "⭕️"
+      setSquares(updateBoard)
+    }
+
+  } 
 
   return (
     <>
@@ -20,6 +29,7 @@ const App = () => {
             square={square}
             index={index}
             handleGamePlay={handleGamePlay}
+            key={index}
             />
         )
       })}
